@@ -1,0 +1,15 @@
+name: ${name}
+version: ${version}
+author: WhiteCat
+main: cf.catworlds.dynamicspigotsetting.MainClass
+commands:
+  DynamicSpigotSetting:
+    description: main
+    aliases: dss
+    usage: -| 
+      /<command> <item|exp|> radius
+      /<command> reload
+    permission: plugin_template.test
+permissions:
+  dynamicspigotsetting.test:
+    default: op
