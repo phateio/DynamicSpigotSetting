@@ -7,7 +7,8 @@
 	<version>1.1</version>
 
 	<properties>
-		<spigotVersion>1.12.2-R0.1-SNAPSHOT</spigotVersion>
+		<spigot.api.version>1.13.1</spigot.api.version>
+		<spigotVersion>${spigot.api.version}-R0.1-SNAPSHOT</spigotVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
