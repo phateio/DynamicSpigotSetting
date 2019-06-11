@@ -1,6 +1,6 @@
 name: ${name}
 version: ${version}
-api-version: ${spigot.api.version}
+api-version: 1.13
 author: WhiteCat
 main: cf.catworlds.dynamicspigotsetting.MainClass
 commands:
