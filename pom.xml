@@ -4,7 +4,7 @@
 	<groupId>cf.catworlds</groupId>
 	<artifactId>DynamicSpigotSetting</artifactId>
 	<name>DynamicSpigotSetting</name>
-	<version>1.3-mc1_15</version>
+	<version>1.3-mc1_16</version>
 
 	<properties>
 		<spigotVersion>1.16.1-R0.1-SNAPSHOT</spigotVersion>
