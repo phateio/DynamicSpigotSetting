@@ -1,6 +1,6 @@
 package cf.catworlds.dynamicspigotsetting.utils;
 
-import net.minecraft.server.v1_15_R1.MinecraftServer;
+import net.minecraft.server.v1_16_R1.MinecraftServer;
 
 public class ServerHelper {
 
