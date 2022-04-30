@@ -84,7 +84,7 @@ public class MainClass extends JavaPlugin {
                     getLogger().warning(TextHelper.format(BasicText.TpsNow, tps_now) + ", "
                             + TextHelper.format(BasicText.ExpMergeCommand, exp));
             }
-        }.runTaskTimer(this, Setting.timerSec * 20, Setting.timerSec * 20);
+        }.runTaskTimer(this, Setting.timerSec * 20L, Setting.timerSec * 20L);
 
     }
 
