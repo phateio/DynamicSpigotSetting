@@ -11,24 +11,22 @@ public class ServerHelper {
 
     @SuppressWarnings("deprecation")
     static public double getItemMerge() {
-        return MinecraftServer.getServer().levels.values().iterator().next().spigotConfig.itemMerge;
+        return MinecraftServer.getServer().getAllLevels().iterator().next().spigotConfig.itemMerge;
     }
 
     @SuppressWarnings("deprecation")
     static public void setItemMerge(double radius) {
-        MinecraftServer.getServer().levels.values()
-                .forEach((ws) -> ws.spigotConfig.itemMerge = radius);
+        MinecraftServer.getServer().getAllLevels().forEach((ws) -> ws.spigotConfig.itemMerge = radius);
     }
 
     @SuppressWarnings("deprecation")
     static public double getExpMerge() {
-        return MinecraftServer.getServer().levels.values().iterator().next().spigotConfig.expMerge;
+        return MinecraftServer.getServer().getAllLevels().iterator().next().spigotConfig.expMerge;
     }
 
     @SuppressWarnings("deprecation")
     static public void setExpMerge(double radius) {
-        MinecraftServer.getServer().levels.values()
-                .forEach((ws) -> ws.spigotConfig.expMerge = radius);
+        MinecraftServer.getServer().getAllLevels().forEach((ws) -> ws.spigotConfig.expMerge = radius);
     }
 
 }
