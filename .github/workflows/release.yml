@@ -19,12 +19,21 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Install Git
+      run: |
+        git --version
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+
     - name: Build Spigot with BuildTools
       run: |
         mkdir -p buildtools
         cd buildtools
+        echo "Downloading BuildTools.jar..."
         wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+        echo "Starting BuildTools for Spigot 1.21.10..."
         java -jar BuildTools.jar --rev 1.21.10 --remapped
+        echo "BuildTools completed"
         cd ..
       timeout-minutes: 30
 
