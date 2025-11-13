@@ -26,6 +26,12 @@ jobs:
         wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
         java -jar BuildTools.jar --rev 1.21.10 --remapped
         cd ..
+      timeout-minutes: 30
+
+    - name: Verify Spigot installation
+      run: |
+        echo "Checking local Maven repository for Spigot 1.21.10..."
+        ls -la ~/.m2/repository/org/spigotmc/spigot/1.21.10-R0.1-SNAPSHOT/ || echo "Directory not found"
 
     - name: Build with Maven
       run: mvn clean package
