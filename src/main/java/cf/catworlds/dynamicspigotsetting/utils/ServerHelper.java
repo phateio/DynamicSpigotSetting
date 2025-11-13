@@ -1,12 +1,12 @@
 package cf.catworlds.dynamicspigotsetting.utils;
 
 import net.minecraft.server.MinecraftServer;
+import org.bukkit.Bukkit;
 
 public class ServerHelper {
 
-    @SuppressWarnings("deprecation")
     static public double getTPS() {
-        return MinecraftServer.getServer().recentTps[0];
+        return Bukkit.getTPS()[0];
     }
 
     @SuppressWarnings("deprecation")
