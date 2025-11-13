@@ -19,6 +19,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Build Spigot with BuildTools
+      run: |
+        mkdir -p buildtools
+        cd buildtools
+        wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+        java -jar BuildTools.jar --rev 1.21.10 --remapped
+        cd ..
+
     - name: Build with Maven
       run: mvn clean package
 
