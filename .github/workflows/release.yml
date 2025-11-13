@@ -9,71 +9,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-        cache: maven
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Install Git
-      run: |
-        git --version
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
+      - name: Build Spigot with BuildTools
+        run: |
+          mkdir -p buildtools
+          cd buildtools
+          wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+          java -jar BuildTools.jar --rev 1.21.10 --remapped
+          cd ..
+        timeout-minutes: 30
 
-    - name: Build Spigot with BuildTools
-      run: |
-        mkdir -p buildtools
-        cd buildtools
-        echo "Downloading BuildTools.jar..."
-        wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
-        echo "Starting BuildTools for Spigot 1.21.10..."
-        java -jar BuildTools.jar --rev 1.21.10 --remapped
-        echo "BuildTools completed"
-        cd ..
-      timeout-minutes: 30
+      - name: Build with Maven
+        run: mvn clean package
 
-    - name: Verify Spigot installation
-      run: |
-        echo "Checking local Maven repository for Spigot 1.21.10..."
-        ls -la ~/.m2/repository/org/spigotmc/spigot/1.21.10-R0.1-SNAPSHOT/ || echo "Directory not found"
+      - name: Find JAR file
+        id: find_jar
+        run: |
+          JAR_FILE=$(ls target/*.jar | grep -v 'remapped-obf.jar' | grep -v 'original-' | tail -n 1)
+          echo "jar_file=$JAR_FILE" >> $GITHUB_OUTPUT
+          echo "jar_name=$(basename $JAR_FILE)" >> $GITHUB_OUTPUT
 
-    - name: Build with Maven
-      run: mvn clean package
-
-    - name: List built files
-      run: |
-        echo "Files in target directory:"
-        ls -lh target/*.jar || true
-
-    - name: Find JAR file
-      id: find_jar
-      run: |
-        # The final remapped JAR will be: DynamicSpigotSetting-{version}.jar
-        JAR_FILE="target/DynamicSpigotSetting-${{ github.event.release.tag_name }}.jar"
-
-        # Verify file exists
-        if [ ! -f "$JAR_FILE" ]; then
-          # Fallback: find the main JAR (exclude remapped-obf and original)
-          JAR_FILE=$(ls target/*.jar | grep -v 'remapped-obf.jar' | grep -v 'original-' | head -n 1)
-        fi
-
-        echo "Selected JAR: $JAR_FILE"
-        ls -lh "$JAR_FILE"
-
-        echo "jar_file=$JAR_FILE" >> $GITHUB_OUTPUT
-        echo "jar_name=DynamicSpigotSetting-${{ github.event.release.tag_name }}.jar" >> $GITHUB_OUTPUT
-
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ${{ steps.find_jar.outputs.jar_file }}
-        asset_name: ${{ steps.find_jar.outputs.jar_name }}
-        asset_content_type: application/java-archive
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ steps.find_jar.outputs.jar_file }}
+          asset_name: ${{ steps.find_jar.outputs.jar_name }}
+          asset_content_type: application/java-archive
