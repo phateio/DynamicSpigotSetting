@@ -22,12 +22,28 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
 
+    - name: List built files
+      run: |
+        echo "Files in target directory:"
+        ls -lh target/*.jar || true
+
     - name: Find JAR file
       id: find_jar
       run: |
-        JAR_FILE=$(ls target/*.jar | grep -v 'remapped-obf.jar' | grep -v 'original-' | tail -n 1)
+        # The final remapped JAR will be: DynamicSpigotSetting-{version}.jar
+        JAR_FILE="target/DynamicSpigotSetting-${{ github.event.release.tag_name }}.jar"
+
+        # Verify file exists
+        if [ ! -f "$JAR_FILE" ]; then
+          # Fallback: find the main JAR (exclude remapped-obf and original)
+          JAR_FILE=$(ls target/*.jar | grep -v 'remapped-obf.jar' | grep -v 'original-' | head -n 1)
+        fi
+
+        echo "Selected JAR: $JAR_FILE"
+        ls -lh "$JAR_FILE"
+
         echo "jar_file=$JAR_FILE" >> $GITHUB_OUTPUT
-        echo "jar_name=$(basename $JAR_FILE)" >> $GITHUB_OUTPUT
+        echo "jar_name=DynamicSpigotSetting-${{ github.event.release.tag_name }}.jar" >> $GITHUB_OUTPUT
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
