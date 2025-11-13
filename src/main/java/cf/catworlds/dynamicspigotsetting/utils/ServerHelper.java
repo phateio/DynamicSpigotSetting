@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 public class ServerHelper {
 
     static public double getTPS() {
-        return Bukkit.getTPS()[0];
+        return Bukkit.getServer().getTPS()[0];
     }
 
     @SuppressWarnings("deprecation")

@@ -17,23 +17,20 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
-        <!--Spigot API -->
-        <!--<dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
+        <!--Paper API -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
             <version>${spigotVersion}</version>
             <scope>provided</scope>
-        </dependency>-->
-        <!--Spigot API Javadoc -->
-        <!--<dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>${spigotVersion}</version>
-            <classifier>javadoc</classifier>
-        </dependency>-->
+        </dependency>
         <!--Spigot nms -->
         <dependency>
             <groupId>org.spigotmc</groupId>
