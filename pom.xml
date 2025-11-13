@@ -46,6 +46,7 @@
 
     <build>
         <defaultGoal>clean install</defaultGoal>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <resources>
