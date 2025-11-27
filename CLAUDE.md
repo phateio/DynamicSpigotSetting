@@ -13,6 +13,27 @@
 - **Build Tool**: Maven
 - **API**: Spigot/Paper API with NMS (Net Minecraft Server) access
 
+## Contributing Guidelines
+
+**IMPORTANT**: This project follows standardized contributing guidelines documented in `CONTRIBUTING.md`.
+
+**Before making any changes**:
+1. **Verify CONTRIBUTING.md is up-to-date**: `curl -s https://denpaio.github.io/CONTRIBUTING.md | diff CONTRIBUTING.md -`
+2. **If outdated, sync first**: `curl -o CONTRIBUTING.md https://denpaio.github.io/CONTRIBUTING.md`
+3. **Follow all standards** defined in CONTRIBUTING.md
+
+**Key Requirements**:
+- **Java Style**: Follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+- **Commit Messages**: Use [Conventional Commits](https://www.conventionalcommits.org/) format (e.g., `feat:`, `fix:`, `docs:`, `refactor:`)
+- **Code Comments**: English preferred, follow existing context
+- **Documentation**: English preferred
+- **Before Committing**:
+  - Run linters/formatters (google-java-format for Java)
+  - Ensure all tests pass
+  - Write self-documenting code
+
+**Source of Truth**: The CONTRIBUTING.md file in this repository is synced from [denpaio.github.io/CONTRIBUTING.md](https://denpaio.github.io/CONTRIBUTING.md). Do not modify CONTRIBUTING.md directly; all changes must be made in the source repository.
+
 ## Core Functionality
 
 The plugin monitors server TPS and dynamically adjusts:
@@ -28,6 +49,8 @@ DynamicSpigotSetting/
 ├── .github/
 │   └── workflows/
 │       └── release.yml          # GitHub Actions for releases
+├── CONTRIBUTING.md              # Contributing guidelines (synced from source)
+├── CLAUDE.md                    # AI Assistant guide (this file)
 ├── src/
 │   └── main/
 │       ├── java/cf/catworlds/dynamicspigotsetting/
