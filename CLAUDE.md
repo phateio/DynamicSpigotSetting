@@ -5,10 +5,10 @@
 **DynamicSpigotSetting** is a Minecraft Spigot/Paper plugin that dynamically adjusts server performance settings based on real-time TPS (Ticks Per Second) monitoring. The plugin automatically modifies item and experience orb merge radii to help maintain server performance during high load situations.
 
 - **Plugin Name**: DynamicSpigotSetting
-- **Version**: 1.3-mc1_21_10
+- **Version**: 1.3-mc1_21_11
 - **Package**: cf.catworlds.dynamicspigotsetting
 - **Author**: WhiteCat
-- **Minecraft Version**: 1.21.10
+- **Minecraft Version**: 1.21.11
 - **Java Version**: 21
 - **Build Tool**: Maven
 - **API**: Spigot/Paper API with NMS (Net Minecraft Server) access
@@ -195,11 +195,11 @@ TextHelper.format(BasicText.ItemMergeCommand, 2.5)
 
 **Dependencies**:
 1. **Paper API** (provided scope):
-   - Artifact: `io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT`
+   - Artifact: `io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT`
    - Used for Bukkit/Spigot API access and Paper-specific features like `getTPS()`
 
 2. **Spigot NMS** (provided scope):
-   - Artifact: `org.spigotmc:spigot:1.21.10-R0.1-SNAPSHOT:remapped-mojang`
+   - Artifact: `org.spigotmc:spigot:1.21.11-R0.1-SNAPSHOT:remapped-mojang`
    - Used for direct server internals access (MinecraftServer, WorldServer)
 
 **Build Process**:
@@ -251,7 +251,7 @@ mvn clean
 2. Set up JDK 21 (Temurin distribution) with Maven cache
 3. **Build Spigot with BuildTools** (30-minute timeout):
    - Downloads latest BuildTools.jar
-   - Builds Spigot 1.21.10 with remapped sources
+   - Builds Spigot 1.21.11 with remapped sources
    - Required for NMS dependencies
 4. Build with Maven (`mvn clean package`)
 5. Find final JAR (excludes `remapped-obf.jar` and `original-` prefix)
@@ -286,7 +286,7 @@ mvn clean
 
 4. **Local Testing**:
    - Copy `target/DynamicSpigotSetting-*-remapped.jar` to test server's `plugins/` folder
-   - Requires Spigot or Paper 1.21.10 server
+   - Requires Spigot or Paper 1.21.11 server
 
 ### Making Code Changes
 
@@ -426,8 +426,8 @@ new BukkitRunnable() {
 
 ### Version Compatibility
 
-**Current Version**: 1.21.10
-- Built against Spigot 1.21.10-R0.1-SNAPSHOT
+**Current Version**: 1.21.11
+- Built against Spigot 1.21.11-R0.1-SNAPSHOT
 - Uses Mojang mappings (remapped-mojang classifier)
 
 **When Updating Minecraft Version**:
@@ -650,12 +650,12 @@ try {
 
 ### Current Versions
 
-- **Minecraft**: 1.21.10
+- **Minecraft**: 1.21.11
 - **Java**: 21
 - **Maven Compiler**: 3.13.0
 - **SpecialSource**: 2.0.3
-- **Paper API**: 1.21.10-R0.1-SNAPSHOT
-- **Spigot**: 1.21.10-R0.1-SNAPSHOT
+- **Paper API**: 1.21.11-R0.1-SNAPSHOT
+- **Spigot**: 1.21.11-R0.1-SNAPSHOT
 
 ### Updating Dependencies
 
@@ -706,8 +706,8 @@ try {
 ### Server Compatibility Testing
 
 Test on:
-- [ ] Latest Spigot 1.21.10
-- [ ] Latest Paper 1.21.10
+- [ ] Latest Spigot 1.21.11
+- [ ] Latest Paper 1.21.11
 - [ ] With other plugins (check conflicts)
 - [ ] With low TPS simulation
 - [ ] After server restart (config persistence)
@@ -722,7 +722,7 @@ Test on:
 1. Ensure `~/.m2/repository` has Spigot artifacts
 2. Run BuildTools manually:
    ```bash
-   java -jar BuildTools.jar --rev 1.21.10 --remapped
+   java -jar BuildTools.jar --rev 1.21.11 --remapped
    ```
 3. Retry build
 
@@ -973,6 +973,6 @@ mvn clean package
 
 ---
 
-**Last Updated**: 2025-11-15
+**Last Updated**: 2025-12-11
 **For**: AI Assistant Claude
-**Project Version**: 1.3-mc1_21_10
+**Project Version**: 1.3-mc1_21_11
