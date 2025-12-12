@@ -31,3 +31,8 @@ hs_err_pid*
 # IDEA stuff
 .idea/
 *.iml
+
+### Gradle ingnored
+/.gradle/
+/build/
+!gradle-wrpper.jar
