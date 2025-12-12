@@ -1,6 +1,13 @@
+import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
+
 plugins {
     `java-library`
+    alias(libs.plugins.yml.bukkit)
 }
+
+group = "cf.catworlds"
+version = "1.3-mc1_21_10"
+
 
 repositories {
     mavenLocal()
@@ -22,10 +29,37 @@ dependencies {
     compileOnly(libs.org.spigotmc.spigot)
 }
 
-group = "cf.catworlds"
-version = "1.3-mc1_21_10"
-description = "DynamicSpigotSetting"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+bukkit {
+    name = project.name
+    version = project.version.toString()
+    main = "cf.catworlds.dynamicspigotsetting.MainClass"
+
+    apiVersion = "1.13"
+
+    author = "WhiteCat"
+
+    commands {
+        register("DynamicSpigotSetting") {
+            description = "main command"
+            aliases = listOf("dss")
+
+            usage = """
+                /<command> <item|exp|> radius
+                /<command> reload
+            """.trimIndent()
+
+            permission = "dynamicspigotsetting.manage"
+        }
+    }
+
+    permissions {
+        register("dynamicspigotsetting.manage") {
+            default = BukkitPluginDescription.Permission.Default.OP
+        }
+    }
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_21
 
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"
