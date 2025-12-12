@@ -3,30 +3,36 @@ import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 plugins {
     `java-library`
     alias(libs.plugins.yml.bukkit)
+    alias(libs.plugins.paperweight.userdev)
 }
 
+val versionPlugin = "1.3"
+val versionMinecraft = "1.21.10"
+
 group = "cf.catworlds"
-version = "1.3-mc1_21_10"
+version = "$versionPlugin-mc${versionMinecraft.replace('.', '_')}"
 
 
 repositories {
-    mavenLocal()
-    maven {
-        url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
-    }
-
-    maven {
-        url = uri("https://repo.papermc.io/repository/maven-public/")
-    }
-
-    maven {
-        url = uri("https://repo.maven.apache.org/maven2/")
-    }
+    mavenCentral()
 }
 
 dependencies {
-    compileOnly(libs.io.papermc.paper.paper.api)
-    compileOnly(libs.org.spigotmc.spigot)
+    paperweight.paperDevBundle("$versionMinecraft-R0.1-SNAPSHOT")
+}
+
+paperweight {
+    reobfArtifactConfiguration = io.papermc.paperweight.userdev.ReobfArtifactConfiguration.MOJANG_PRODUCTION
+
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks {
+    compileJava {
+        options.encoding = Charsets.UTF_8.name()
+    }
 }
 
 bukkit {
@@ -57,14 +63,4 @@ bukkit {
             default = BukkitPluginDescription.Permission.Default.OP
         }
     }
-}
-
-java.sourceCompatibility = JavaVersion.VERSION_21
-
-tasks.withType<JavaCompile>() {
-    options.encoding = "UTF-8"
-}
-
-tasks.withType<Javadoc>() {
-    options.encoding = "UTF-8"
 }

@@ -2,9 +2,12 @@
 io-papermc-paper-paper-api = "1.21.10-R0.1-SNAPSHOT"
 org-spigotmc-spigot = "1.21.10-R0.1-SNAPSHOT"
 plugin-yml = "0.8.0" # https://github.com/eldoriarpg/plugin-yml/releases
+paperweight = "2.0.0-beta.19" # https://github.com/PaperMC/paperweight/releases
 
 [plugins]
 yml-bukkit = { id = "de.eldoria.plugin-yml.bukkit", version.ref = "plugin-yml" }
+# https://docs.papermc.io/paper/dev/userdev/
+paperweight-userdev = { id = "io.papermc.paperweight.userdev", version.ref = "paperweight" }
 
 [libraries]
 io-papermc-paper-paper-api = { module = "io.papermc.paper:paper-api", version.ref = "io-papermc-paper-paper-api" }
