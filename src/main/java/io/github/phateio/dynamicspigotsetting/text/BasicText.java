@@ -1,4 +1,4 @@
-package cf.catworlds.dynamicspigotsetting.text;
+package io.github.phateio.dynamicspigotsetting.text;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -9,7 +9,7 @@ plugins {
 val versionPlugin = "1.3"
 val versionMinecraft = "1.21.10"
 
-group = "cf.catworlds"
+group = "io.github.phateio"
 version = "$versionPlugin-mc${versionMinecraft.replace('.', '_')}"
 
 
@@ -38,7 +38,7 @@ tasks {
 bukkit {
     name = project.name
     version = project.version.toString()
-    main = "cf.catworlds.dynamicspigotsetting.MainClass"
+    main = "io.github.phateio.dynamicspigotsetting.MainClass"
 
     apiVersion = "1.13"
 

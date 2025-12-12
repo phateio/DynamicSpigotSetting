@@ -1,4 +1,4 @@
-package cf.catworlds.dynamicspigotsetting.text;
+package io.github.phateio.dynamicspigotsetting.text;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;

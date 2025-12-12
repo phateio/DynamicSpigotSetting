@@ -6,7 +6,7 @@
 
 - **Plugin Name**: DynamicSpigotSetting
 - **Version**: 1.3-mc1_21_10
-- **Package**: cf.catworlds.dynamicspigotsetting
+- **Package**: io.github.phateio.dynamicspigotsetting
 - **Author**: WhiteCat
 - **Minecraft Version**: 1.21.10
 - **Java Version**: 21
@@ -613,7 +613,7 @@ This logs TPS and radius changes every cycle:
 - **Methods**: camelCase (e.g., `loadConfig`, `getTPS`)
 - **Static Fields**: camelCase (e.g., `timerSec`, `itemMerge_TPS`)
 - **Constants**: PascalCase for enums, UPPER_SNAKE_CASE for final constants
-- **Packages**: lowercase (e.g., `cf.catworlds.dynamicspigotsetting`)
+- **Packages**: lowercase (e.g., `io.github.phateio.dynamicspigotsetting`)
 
 ### Code Organization
 

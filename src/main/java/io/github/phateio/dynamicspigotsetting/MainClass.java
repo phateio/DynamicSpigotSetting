@@ -1,10 +1,10 @@
-package cf.catworlds.dynamicspigotsetting;
+package io.github.phateio.dynamicspigotsetting;
 
-import cf.catworlds.dynamicspigotsetting.command.MainCommand;
-import cf.catworlds.dynamicspigotsetting.text.BasicText;
-import cf.catworlds.dynamicspigotsetting.text.TextHelper;
-import cf.catworlds.dynamicspigotsetting.utils.ConfigHelper;
-import cf.catworlds.dynamicspigotsetting.utils.ServerHelper;
+import io.github.phateio.dynamicspigotsetting.command.MainCommand;
+import io.github.phateio.dynamicspigotsetting.text.BasicText;
+import io.github.phateio.dynamicspigotsetting.text.TextHelper;
+import io.github.phateio.dynamicspigotsetting.utils.ConfigHelper;
+import io.github.phateio.dynamicspigotsetting.utils.ServerHelper;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;

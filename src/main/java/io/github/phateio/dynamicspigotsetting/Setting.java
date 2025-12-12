@@ -1,7 +1,7 @@
-package cf.catworlds.dynamicspigotsetting;
+package io.github.phateio.dynamicspigotsetting;
 
-import cf.catworlds.dynamicspigotsetting.text.BasicText;
-import cf.catworlds.dynamicspigotsetting.text.TextHelper;
+import io.github.phateio.dynamicspigotsetting.text.BasicText;
+import io.github.phateio.dynamicspigotsetting.text.TextHelper;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;

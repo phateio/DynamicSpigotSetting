@@ -1,4 +1,4 @@
-package cf.catworlds.dynamicspigotsetting.utils;
+package io.github.phateio.dynamicspigotsetting.utils;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

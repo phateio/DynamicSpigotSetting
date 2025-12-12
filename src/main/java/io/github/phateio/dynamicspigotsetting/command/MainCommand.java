@@ -1,9 +1,9 @@
-package cf.catworlds.dynamicspigotsetting.command;
+package io.github.phateio.dynamicspigotsetting.command;
 
-import cf.catworlds.dynamicspigotsetting.MainClass;
-import cf.catworlds.dynamicspigotsetting.text.BasicText;
-import cf.catworlds.dynamicspigotsetting.text.TextHelper;
-import cf.catworlds.dynamicspigotsetting.utils.ServerHelper;
+import io.github.phateio.dynamicspigotsetting.MainClass;
+import io.github.phateio.dynamicspigotsetting.text.BasicText;
+import io.github.phateio.dynamicspigotsetting.text.TextHelper;
+import io.github.phateio.dynamicspigotsetting.utils.ServerHelper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
