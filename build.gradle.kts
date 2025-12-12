@@ -7,7 +7,7 @@ plugins {
 }
 
 val versionPlugin = "1.3"
-val versionMinecraft = "1.21.10"
+val versionMinecraft = "1.21.11"
 
 group = "io.github.phateio"
 version = "$versionPlugin-mc${versionMinecraft.replace('.', '_')}"
