@@ -1,12 +1,11 @@
 package cf.catworlds.dynamicspigotsetting.utils;
 
 import net.minecraft.server.MinecraftServer;
-import org.bukkit.Bukkit;
 
 public class ServerHelper {
 
     static public double getTPS() {
-        return Bukkit.getServer().getTPS()[0];
+        return MinecraftServer.getServer().getTPS()[0];
     }
 
     static public double getItemMerge() {
